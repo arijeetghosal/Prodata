@@ -1,0 +1,34 @@
+﻿<Window x:Class="SharcProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SharcProject"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="MainWindow"  WindowStartupLocation="CenterScreen" Width="460" Height="730">
+    <Grid Background="#FFE50A43">
+        <Image HorizontalAlignment="Center" Margin="0 100" VerticalAlignment="Top" Source="images\SHARC LOGO-01.png" Height="Auto" Width="600">
+            
+        </Image>
+        <Button Foreground="#CCCDC4" Margin="115,404,115,226" BorderBrush="#FFE50A43" Background="#FF27363B" Width="200" Height="50" Style="{StaticResource MaterialDesignRaisedButton}" Content="Start" FontFamily="Segoe UI" FontWeight="Bold" FontSize="22" Click="Button_Click"  >
+                <Button.Effect>
+                    <DropShadowEffect Color="#FFE50A43"/>
+                </Button.Effect>
+            </Button>
+
+
+    </Grid>
+    
+
+ 
+
+
+</Window>

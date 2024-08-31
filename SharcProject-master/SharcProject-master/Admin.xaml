@@ -1,0 +1,228 @@
+﻿<Window x:Class="SharcProject.Admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SharcProject"
+        mc:Ignorable="d"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+          xmlns:fa="http://schemas.fontawesome.io/icons/"
+          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+          TextElement.FontWeight="Regular"
+          TextElement.FontSize="13"
+          TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+         Background="{DynamicResource MaterialDesignPaper}"
+         FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Admin" WindowStyle="None" WindowState="Maximized" WindowStartupLocation="CenterScreen" Height="450" Width="800">
+
+    <Grid x:Name="main"  Background="#FF27363B">
+        <!--Top Grid-->
+
+        <Grid VerticalAlignment="Top" Background="#FF27363B" Width="auto" Height="60" Visibility="Visible" >
+            <Grid>
+                <Button x:Name="arrow" Style="{StaticResource MaterialDesignFlatButton}" Foreground="#CCCDC4" HorizontalAlignment="Left" Width="70" Background="#FF27363B" BorderBrush="#FF27363B"  FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Height="61" Margin="100,0,0,0" Click="arrow_Click">
+                    <fa:FontAwesome Icon="ArrowCircleLeft" FontSize="35" Width="70" HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="#CCCDC4" />
+                </Button>
+            </Grid>
+            <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="Admin" Foreground="#CCCDC4" FontWeight="Bold" FontSize="30"/>
+            <materialDesign:PopupBox   Foreground="#FFE50A43"  HorizontalAlignment="Right" Background="#FFE50A43" BorderBrush="#FFE50A43">
+                <StackPanel HorizontalAlignment="Left" Background="#FFE50A43"   Width="150">
+                    <Button Height="50" Foreground="#FF27363B" Content="Account Setting" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" ></Button>
+                    <Button Height="50"  Foreground="#FF27363B" Content="Settings" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold"></Button>
+                    <Button Height="50"  Foreground="#FF27363B" Content="Help" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" ></Button>
+                    <Button Height="50"  x:Name="Logout" Foreground="#FF27363B" Content="Logout" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Click="Logout_Click"></Button>
+                </StackPanel>
+            </materialDesign:PopupBox>
+            <Button x:Name="admin_Btn"  Background="Transparent" HorizontalAlignment="Right" Foreground="Transparent" Width="55" Height="40"  Margin="650 0 30 0" BorderBrush="{x:Null}" Click="admin_Btn_">
+                <fa:FontAwesome Icon="UserCircle" FontSize="20" Foreground="#FFE50A43"/>
+            </Button>
+        </Grid>
+        <Image  Margin="62,41,26,-61" HorizontalAlignment="Center" VerticalAlignment="Center" Source="images\Red Sharc Logo-01.png" Width="1000" Height="439"/>
+
+        <Grid x:Name="Dashboard_grid" Background="#FF27363B" Width="auto" Height="auto"  Margin="77,60,0,0" Visibility="Hidden">
+            <StackPanel Orientation="Horizontal" Margin="0,35,0,0">
+                <Border Width="250" Height="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="155,20,0,0" Background="#CCCDC4" BorderBrush="Gray" CornerRadius="12" >
+                    <Grid>
+                        <TextBlock Text="Teachers" HorizontalAlignment="Left" FontFamily="Segoe UI" FontSize="32" FontWeight="Bold" Foreground="#FF27363B" Margin="35,14,0,6" />
+                        <fa:ImageAwesome Icon="GraduationCap" Width="40" Height="40" Foreground="#FF27363B" HorizontalAlignment="Right" Margin="0,0,30,120" />
+                        <Border CornerRadius="55" Margin="70,70,65.6,15" Background="#FF27363B">
+                            <Label VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="Teacher_Count" Content="0"  Foreground="#CCCDC4" Background="#FF27363B" FontFamily="Segoe UI" FontWeight="Bold" FontSize="48" Loaded="Teacher_Count_"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Width="250" Height="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="40,20,0,0" Background="#CCCDC4" BorderBrush="Gray" CornerRadius="12" >
+                    <Grid>
+                        <TextBlock Text="Students" HorizontalAlignment="Left" FontFamily="Segoe UI" FontSize="32" FontWeight="Bold" Foreground="#FF27363B" Margin="35,16,0,4" />
+                        <fa:ImageAwesome Icon="Users" Width="40" Height="40" Foreground="#FF27363B" HorizontalAlignment="Right" Margin="0,0,30,120" />
+                        <Border CornerRadius="55" Margin="70,70,65.6,15" Background="#FF27363B">
+                            <Label VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="Student_Count" Content="0"  Foreground="#CCCDC4" Background="#FF27363B"  FontFamily="Segoe UI" FontWeight="Bold" FontSize="48" Loaded="Student_Count_"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Width="250" Height="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="40,20,0,0" Background="#CCCDC4" BorderBrush="Gray" CornerRadius="12" >
+                    <Grid>
+                        <TextBlock Text="Courses" HorizontalAlignment="Left" FontFamily="Segoe UI" FontSize="32" FontWeight="Bold" Foreground="#FF27363B" Margin="35,14,0,6" />
+                        <fa:ImageAwesome Icon="Book" Width="40" Height="40" Foreground="#FF27363B" HorizontalAlignment="Right" Margin="0,0,30,120" />
+                        <Border CornerRadius="55" Margin="70,70,65.6,15" Background="#FF27363B">
+                            <Label x:Name="Course_Count" VerticalAlignment="Center" HorizontalAlignment="Center" Content="0"  Foreground="#CCCDC4" Background="#FF27363B"  FontFamily="Segoe UI" FontWeight="Bold" FontSize="48" Loaded="Course_Count_"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Width="250" Height="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="40,20,0,0" Background="#CCCDC4" BorderBrush="Gray" CornerRadius="12" >
+                    <Grid>
+                        <TextBlock Text="Lectures" HorizontalAlignment="Left" FontFamily="Segoe UI" FontSize="32" FontWeight="Bold" Foreground="#FF27363B" Margin="35,14,0,6" />
+                        <fa:ImageAwesome Icon="VideoCamera" Width="40" Height="40" Foreground="#FF27363B" HorizontalAlignment="Right" Margin="0,0,30,120" />
+                        <Border CornerRadius="55" Margin="70,70,65.6,15" Background="#FF27363B">
+                            <Label x:Name="Video_count" VerticalAlignment="Center" HorizontalAlignment="Center" Content="0"  Foreground="#CCCDC4" Background="#FF27363B" FontFamily="Segoe UI" FontWeight="Bold" FontSize="48" Loaded="Video_count_"/>
+                        </Border>
+                    </Grid>
+                </Border>
+            </StackPanel>
+            <Grid VerticalAlignment="Bottom" Visibility="Visible">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border BorderBrush="Gray"/>
+                <TextBlock HorizontalAlignment="Center" Text="Graph" VerticalAlignment="Center" Margin="15,20,15,25" Foreground="#CCCDC4" FontSize="30" FontWeight="Bold"/>
+                <fa:FontAwesome Icon="BarChart" FontSize="40" Margin="0,15,150,0" Foreground="#CCCDC4" />
+
+                <Border Visibility="Visible" Grid.Row="1" Width="700" Height="350" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20,10,20,20" Background="#CCCDC4" BorderBrush="Gray" CornerRadius="12">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal">
+                            <Grid Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="top" Margin="100,20,0,0" Background="Black"></Grid>
+                            <Label Content="Teachers" Foreground="#FF27363B" FontFamily="Segoe UI" FontWeight="Bold" Margin="0,25,0,0"/>
+                            <Grid Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="top" Margin="30,20,0,0" Background="Purple"></Grid>
+                            <Label Content="Students" Foreground="#FF27363B" FontFamily="Segoe UI" FontWeight="Bold" Margin="0,25,0,0"/>
+                            <Grid Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="top" Margin="30,20,0,0" Background="Green"></Grid>
+                            <Label Content="Courses" Foreground="#FF27363B" FontFamily="Segoe UI" FontWeight="Bold" Margin="0,25,0,0"/>
+                            <Grid Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="top" Margin="30,20,0,0" Background="Red"></Grid>
+                            <Label Content="Videos" Foreground="#FF27363B" FontFamily="Segoe UI" FontWeight="Bold" Margin="0,25,0,0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Height="200"  VerticalAlignment="Bottom" Margin="200,0,0,0">
+                            <local:Bar x:Name="Teacher_Bar" Background="White" Width="30" Foreground="#FF27363B" MaxValue="100" Margin="10,0,35,0" Value="50"  Color="black" FontFamily="Segoe UI" FontWeight="Bold" Loaded="Teacher_Bar_" />
+                            <local:Bar x:Name="Student_Bar" Background="White" Width="30" Foreground="#FF27363B" MaxValue="100" Margin="10,0,35,0" Value="35"  Color="Purple" FontFamily="Segoe UI" FontWeight="Bold" Loaded="Student_Bar_"/>
+                            <local:Bar x:Name="Course_bar" Background="White" Width="30" Foreground="#FF27363B" MaxValue="100" Margin="10,0,35,0" Value="80" Color="green" FontFamily="Segoe UI" FontWeight="Bold" Loaded="Course_bar_"/>
+                            <local:Bar x:Name="Video_bar" Background="White" Width="30" Foreground="#FF27363B" MaxValue="100" Margin="10,0,35,0" Value="18" Color="Red" FontFamily="Segoe UI" FontWeight="Bold" Loaded="Video_bar_"/>
+                        </StackPanel>
+                    </Grid>
+
+                </Border>
+            </Grid>
+
+        </Grid>
+        <Grid x:Name="StudentEnroll_grid" Background="#FF27363B" Width="auto" Height="auto" Margin="60,60,0,0" Visibility="Hidden">
+            <DataGrid x:Name="Student_DataGrid"  HorizontalAlignment="center" Height="500" Width="1000" Margin="157,20,10,0" VerticalAlignment="Top" Foreground="#FF27363B" Loaded="Student_DataGrid_">
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#CCCDC4"></Setter>
+                        <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                        <Setter Property="FontWeight" Value="bold"></Setter>
+                        <Setter Property="BorderThickness" Value="1,1,1,1"></Setter>
+                        <Setter Property="BorderBrush" Value="#FF27363B"></Setter>
+                        <Setter Property="FontSize" Value="18"></Setter>
+                        <Setter Property="Height" Value="30"></Setter>
+                    </Style>
+                </DataGrid.Resources>
+            </DataGrid>
+
+        </Grid>
+        <Grid x:Name="TeacherEnroll_grid" Background="#FF27363B" Width="auto" Height="auto" Margin="77,60,0,0" Visibility="Hidden" Loaded="TeacherEnroll_grid_">
+            <DataGrid x:Name="Teacher_DataGrid"  HorizontalAlignment="center" Height="500" Width="1000" Margin="157,20,10,0" VerticalAlignment="Top" Foreground="#FF27363B" Loaded="Student_DataGrid_">
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#CCCDC4"></Setter>
+                        <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                        <Setter Property="FontWeight" Value="bold"></Setter>
+                        <Setter Property="BorderThickness" Value="1,1,1,1"></Setter>
+                        <Setter Property="BorderBrush" Value="#FF27363B"></Setter>
+                        <Setter Property="FontSize" Value="18"></Setter>
+                        <Setter Property="Height" Value="30"></Setter>
+                    </Style>
+                </DataGrid.Resources>
+            </DataGrid>
+        </Grid>
+        <Grid x:Name="Ebook_grid" Background="#FF27363B" Width="auto" Height="auto" Margin="77,60,0,0" Visibility="Hidden">
+            <DataGrid x:Name="Ebook_DataGrid"  HorizontalAlignment="center" Height="500" Width="1000" Margin="157,20,10,0" VerticalAlignment="Top" Foreground="#FF27363B" Loaded="Ebook_DataGrid_">
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#CCCDC4"></Setter>
+                        <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                        <Setter Property="FontWeight" Value="bold"></Setter>
+                        <Setter Property="BorderThickness" Value="1,1,1,1"></Setter>
+                        <Setter Property="BorderBrush" Value="#FF27363B"></Setter>
+                        <Setter Property="FontSize" Value="18"></Setter>
+                        <Setter Property="Height" Value="30"></Setter>
+                    </Style>
+                </DataGrid.Resources>
+            </DataGrid>
+        </Grid>
+
+
+        <DockPanel Margin="-23 0 0 0" >
+            <Canvas >
+
+                <StackPanel Height="1000" Width="250" Background="#FFE50A43" Margin="-150,0,0,0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="MouseEnter">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ThicknessAnimation Storyboard.TargetProperty="Margin" From="-150,0,0,0" To="0,0,0,0" DecelerationRatio=".8" Duration="0:0:0.7"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="MouseLeave">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="-150,0,0,0" DecelerationRatio=".5" Duration="0:0:0.7"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+
+                    </StackPanel.Style>
+                    <DockPanel  HorizontalAlignment="Center"  VerticalAlignment="Center" Margin="0,0,0,0" />
+                    <DockPanel HorizontalAlignment="Center" Background="#FFE50A43" VerticalAlignment="Center" Margin="10,0,5,0">
+
+                        <fa:FontAwesome Icon="Bars" FontSize="30" Width="40" Margin="185,15,10,10" Foreground="#FF27363B" />
+                    </DockPanel>
+
+                    <DockPanel Background="#FFE50A43" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0">
+                        <Button  Style="{StaticResource MaterialDesignFlatButton}" Foreground="#FF27363B" Width="184" Background="#FFE50A43" BorderBrush="#FF27363B"  FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Height="61" Margin="5,0,0,0" Click="Button_Click_3">Dashboard
+                        </Button>
+                        <fa:FontAwesome   Icon="Home" FontSize="30" Width="40" Margin="0,15,13,10" Foreground="#FF27363B"/>
+                    </DockPanel>
+                    <DockPanel Background="#FFE50A43" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0">
+                        <Button Style="{StaticResource MaterialDesignFlatButton}" Foreground="#FF27363B" Width="184" Background="#FFE50A43" BorderBrush="#FF27363B"  FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Height="61" Margin="3,0,0,0" Click="Button_Click" >Student Enrolled
+                        </Button>
+                        <fa:FontAwesome Icon="ListAlt" FontSize="30" Width="40" Margin="0,15,12,10" Foreground="#FF27363B" />
+                    </DockPanel>
+                    <DockPanel Background="#FFE50A43" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0">
+                        <Button Style="{StaticResource MaterialDesignFlatButton}" Foreground="#FF27363B" Width="184" Background="#FFE50A43" BorderBrush="#FF27363B"  FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Height="61" Margin="5,0,0,0" Click="Button_Click_1">Teachers Enrolled
+                        </Button>
+                        <fa:FontAwesome Icon="ListAlt" FontSize="30" Width="40" Margin="0,17,15,10" Foreground="#FF27363B" />
+                    </DockPanel>
+                    <DockPanel Background="#FFE50A43" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0">
+                        <Button x:Name="E_book_Btn" Style="{StaticResource MaterialDesignFlatButton}" Foreground="#FF27363B" Width="184" Background="#FFE50A43" BorderBrush="#FF27363B"  FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Height="61" Margin="5,0,0,0" Click="E_book_Btn_">E-Books
+                        </Button>
+                        <materialDesign:PackIcon Kind="BookOpen" Height="40" Width="35" Foreground="#FF27363B"  Margin="5,10,20,0" />
+                    </DockPanel>
+                    <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,180">
+                    </DockPanel>
+                </StackPanel>
+            </Canvas>
+        </DockPanel>
+
+
+
+    </Grid>
+</Window>

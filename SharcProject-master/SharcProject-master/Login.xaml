@@ -1,0 +1,96 @@
+﻿<Window x:Class="SharcProject.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SharcProject"
+        mc:Ignorable="d"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+     
+      Title= "Login"  Width="460" Height="730" WindowStartupLocation="CenterScreen">
+
+    <Grid Background="#FFE50A43" >
+
+        <Border Width="380" Height="360" CornerRadius="30" BorderThickness="10" Background="#FF27363B">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Border.BorderBrush>
+                <SolidColorBrush Color="#FF27363B" ></SolidColorBrush>
+
+            </Border.BorderBrush>
+            <Grid  Background="#FF27363B">
+                <TextBlock Text="LOGIN" Foreground="#CCCDC4" Margin="143,32,143,108" HorizontalAlignment="Center" FontSize="24" FontFamily="Segoe UI" FontWeight="Bold">
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="#FF27363B"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <StackPanel VerticalAlignment="Center" Margin="0 0 0 -40">
+                    <!--Username-->
+                    <Grid Margin="0,60,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Username" Foreground="#CCCDC4" Grid.Column="0"  Height="30" Width="66" Margin="0 10 0 10" FontFamily="Segoe UI" FontWeight="Bold" FontSize="14"/>
+                        <TextBox x:Name="Username"  Grid.Column="1" Background="#CCCDC4" Height="30" Margin="0 0 20 10"/>
+                    </Grid>
+                    <!--Password-->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Password" Foreground="#CCCDC4" Grid.Column="0"  Height="30" Width="66" Margin="0 10 0 10" FontFamily="Segoe UI" FontSize="14" FontWeight="Bold"/>
+                        <PasswordBox x:Name="Password"  Grid.Column="1" Background="#CCCDC4" Height="30" Margin="0 0 20 10"/>
+                    </Grid>
+                    <!--Buttons-->
+                    <Grid Margin="10 0 0 0" HorizontalAlignment="Center" Height="51"  >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <Button BorderBrush="#FFE50A43" Margin="38,1,42,10" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" Height="40" Width="100" materialDesign:ButtonAssist.CornerRadius="25" ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Background="#FFE50A43"  Click="Button_Click">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF27363B"/>
+                            </Button.Effect>
+                            <TextBlock Text="Login" FontFamily="Segoe UI" FontWeight="Bold" FontSize="16"/>
+                        </Button>
+                    </Grid>
+                    <Grid Margin="15,30,-0.2,0" Height="65">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="SignUpStudent" BorderBrush="#FFE50A43" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" Height="50" Width="160" materialDesign:ButtonAssist.CornerRadius="25" ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Background="#FFE50A43" HorizontalAlignment="Left" Margin="0,6,0,5" Click="SignUpStudent_btn">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF27363B"/>
+                            </Button.Effect>
+                            <TextBlock Text="Sign Up Student" FontFamily="Segoe UI" FontWeight="Bold" FontSize="16"/>
+                        </Button>
+                        <Button BorderBrush="#FFE50A43" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" Height="50" Width="160" materialDesign:ButtonAssist.CornerRadius="25" ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Background="#FFE50A43"  Click="Button_Click_1" HorizontalAlignment="Left" Margin="0,6,0,5">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF27363B"/>
+                            </Button.Effect>
+                            <TextBlock Text="Sign Up Teacher" FontFamily="Segoe UI" FontWeight="Bold" FontSize="16"/>
+                        </Button>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+    </Grid>
+
+
+</Window>
